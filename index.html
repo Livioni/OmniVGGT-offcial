@@ -673,7 +673,7 @@
             display: flex;
             gap: 30px;
             margin-top: 30px;
-            align-items: flex-start;
+            align-items: stretch;
         }
 
         .ablation-images {
@@ -780,11 +780,11 @@
         }
 
         .left-model {
-            clip-path: inset(0 50% 0 0);
+            clip-path: inset(0 40% 0 0);
         }
 
         .right-model {
-            clip-path: inset(0 0 0 50%);
+            clip-path: inset(0 0 0 60%);
         }
 
         .model-label {
@@ -865,6 +865,341 @@
 
         .comparison-slider:active .slider-button {
             transform: scale(0.95);
+        }
+
+        /* VLA Comparison Section Styles */
+        .vla-comparison-section {
+            margin: 40px 0;
+            background: #f7fafc;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .vla-two-column {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+            align-items: start;
+        }
+
+        .vla-navigation-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .vla-scenes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        /* Tab Navigation for Method Selection */
+        .vla-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0;
+        }
+
+        .vla-tab-btn {
+            background: transparent;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1em;
+            font-weight: 600;
+            color: #718096;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            top: 2px;
+        }
+
+        .vla-tab-btn:hover {
+            color: #667eea;
+        }
+
+        .vla-tab-btn.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        /* VLA Comparison Viewer (Left Side) */
+        .vla-viewer {
+            background: white;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            height: 560px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vla-viewer-compact {
+            height: 400px;
+        }
+
+        .vla-viewer h3 {
+            margin-bottom: 8px;
+            margin-top: 0;
+            flex-shrink: 0;
+            text-align: center;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .vla-comparison-viewer-container {
+            position: relative;
+            width: 100%;
+            flex: 1;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .vla-comparison-gif {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .vla-left-gif {
+            clip-path: inset(0 50% 0 0);
+        }
+
+        .vla-right-gif {
+            clip-path: inset(0 0 0 50%);
+        }
+
+        .vla-gif-label {
+            position: absolute;
+            top: 10px;
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .vla-left-label {
+            left: 15px;
+        }
+
+        .vla-right-label {
+            right: 15px;
+        }
+
+        .vla-comparison-slider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: transparent;
+            cursor: ew-resize;
+            z-index: 20;
+            transform: translateX(-2px);
+        }
+
+        .vla-slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            transform: translateX(-2px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vla-slider-line {
+            flex: 1;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        .vla-slider-button {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 3px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: ew-resize;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            transition: transform 0.2s ease;
+            user-select: none;
+        }
+
+        .vla-slider-button:hover {
+            transform: scale(1.1);
+        }
+
+        .vla-comparison-slider:active .vla-slider-button {
+            transform: scale(0.95);
+        }
+
+        .vla-table-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            width: 65%;
+            flex: 0 0 65%;
+        }
+
+        .vla-table-container h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+            flex-shrink: 0;
+        }
+
+        .vla-table-container h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 60%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .vla-table-wrapper {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: auto;
+            min-height: 0;
+        }
+
+        .vla-table-wrapper::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .vla-table-wrapper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .vla-table-wrapper::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 4px;
+        }
+
+        .vla-table-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #5568d3;
+        }
+
+        .vla-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+            margin-top: 0;
+        }
+
+        .vla-table th,
+        .vla-table td {
+            padding: 10px 6px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .vla-table thead th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .vla-table thead th:first-child {
+            border-top-left-radius: 8px;
+        }
+
+        .vla-table thead th:last-child {
+            border-top-right-radius: 8px;
+        }
+
+        .vla-table thead tr:first-child th {
+            padding: 12px 6px;
+            font-size: 0.9em;
+        }
+
+        .vla-table thead tr:last-child th {
+            padding: 8px 6px;
+            font-size: 0.8em;
+            background: rgba(102, 126, 234, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .vla-table tbody tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        .vla-table tbody tr:hover {
+            background: #edf2f7;
+        }
+
+        .vla-table .task-header {
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+            font-weight: 600;
+            color: #2d3748;
+            border-top: 2px solid #667eea;
+        }
+
+        .vla-table .task-header td {
+            border-top: 2px solid #667eea;
+            border-bottom: 1px solid #cbd5e0;
+            padding: 10px;
+        }
+
+        .vla-table .method-name {
+            font-weight: 600;
+            color: #4a5568;
+            text-align: left;
+            padding-left: 12px;
+        }
+
+        .vla-table .best-value {
+            font-weight: 700;
+            color: #667eea;
         }
 
         footer {
@@ -1005,6 +1340,73 @@
                 width: 40px;
                 height: 40px;
                 font-size: 1.2em;
+            }
+
+            /* VLA Comparison Responsive */
+            .vla-comparison-section {
+                padding: 20px;
+            }
+
+            .vla-two-column {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .vla-table-container {
+                overflow-x: auto;
+            }
+
+            .vla-table {
+                font-size: 0.8em;
+            }
+
+            .vla-table th,
+            .vla-table td {
+                padding: 8px 5px;
+            }
+
+            .vla-viewer {
+                height: 400px;
+                padding: 10px;
+            }
+
+            .vla-viewer-compact {
+                height: 320px;
+            }
+
+            .vla-viewer h3 {
+                margin-bottom: 6px;
+                font-size: 1em;
+            }
+
+            .vla-scenes-container {
+                gap: 8px;
+            }
+
+            .vla-table-container {
+                padding: 15px;
+                width: 100%;
+                flex: 0 0 100%;
+            }
+
+            .vla-table-container h3 {
+                margin-bottom: 12px;
+                font-size: 1.1em;
+                padding-bottom: 8px;
+            }
+
+            .vla-navigation-left {
+                align-items: center;
+            }
+
+            .vla-slider-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+
+            .vla-tabs {
+                flex-wrap: wrap;
             }
         }
     </style>
@@ -1310,6 +1712,193 @@
                         </p>
                     </div>
 
+                </div>
+            </div>
+
+            <!-- VLA Comparison Section -->
+            <div class="section">
+                <h2 class="section-title">VLA Performance Comparison</h2>
+                <div class="vla-comparison-section">
+                    <p class="vis-intro">
+                        Compare the performance of Ours and Kosmos-VLA on different tasks.<br>
+                        <span style="font-size: 0.95em; color: #667eea;">💡 Side-by-side comparison of the two methods</span>
+                    </p>
+                    
+                    <div class="ablation-content">
+                        <!-- Left: Navigation and Scenes -->
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <!-- Scene Navigation (Left) -->
+                            <div class="vla-navigation-left">
+                                <div class="ablation-navigation" style="justify-content: flex-start;">
+                                    <button class="ablation-nav-btn" id="vlaPrevBtn" onclick="changeVLAScene(-1)">‹ Previous</button>
+                                    <span class="ablation-counter" id="vlaCounter">Page 1 / 2</span>
+                                    <button class="ablation-nav-btn" id="vlaNextBtn" onclick="changeVLAScene(1)">Next ›</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Two Scenes Container -->
+                            <div class="vla-scenes-container">
+                                <!-- Scene 1 -->
+                                <div class="vla-viewer vla-viewer-compact">
+                                    <h3 id="vlaViewerTitle1">Scene 1</h3>
+                                    <div class="vla-comparison-viewer-container" id="vlaContainer1">
+                                        <!-- Ours GIF (Left) -->
+                                        <img id="vlaLeftGif1" class="vla-comparison-gif vla-left-gif" src="" alt="Ours">
+                                        <div class="vla-gif-label vla-left-label" id="vlaLeftLabel1">Ours</div>
+                                        
+                                        <!-- Kosmos GIF (Right) -->
+                                        <img id="vlaRightGif1" class="vla-comparison-gif vla-right-gif" src="" alt="Kosmos-VLA">
+                                        <div class="vla-gif-label vla-right-label" id="vlaRightLabel1">Kosmos-VLA</div>
+                                        
+                                        <!-- Slider -->
+                                        <div class="vla-comparison-slider" id="vlaSlider1">
+                                            <div class="vla-slider-handle">
+                                                <div class="vla-slider-line"></div>
+                                                <div class="vla-slider-button">⇄</div>
+                                                <div class="vla-slider-line"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Scene 2 -->
+                                <div class="vla-viewer vla-viewer-compact">
+                                    <h3 id="vlaViewerTitle2">Scene 2</h3>
+                                    <div class="vla-comparison-viewer-container" id="vlaContainer2">
+                                        <!-- Ours GIF (Left) -->
+                                        <img id="vlaLeftGif2" class="vla-comparison-gif vla-left-gif" src="" alt="Ours">
+                                        <div class="vla-gif-label vla-left-label" id="vlaLeftLabel2">Ours</div>
+                                        
+                                        <!-- Kosmos GIF (Right) -->
+                                        <img id="vlaRightGif2" class="vla-comparison-gif vla-right-gif" src="" alt="Kosmos-VLA">
+                                        <div class="vla-gif-label vla-right-label" id="vlaRightLabel2">Kosmos-VLA</div>
+                                        
+                                        <!-- Slider -->
+                                        <div class="vla-comparison-slider" id="vlaSlider2">
+                                            <div class="vla-slider-handle">
+                                                <div class="vla-slider-line"></div>
+                                                <div class="vla-slider-button">⇄</div>
+                                                <div class="vla-slider-line"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Column: Performance Table -->
+                        <div class="vla-table-container">
+                            <h3>性能对比表格</h3>
+                            <div class="vla-table-wrapper">
+                            <table class="vla-table">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Method</th>
+                                        <th colspan="5">Tasks Completed in a Row (%)</th>
+                                        <th rowspan="2">Avg. Len. ↑</th>
+                                    </tr>
+                                    <tr>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Task ABCD->D -->
+                                    <tr class="task-header">
+                                        <td colspan="8" style="text-align: center; font-weight: 600; padding: 12px;">Task: ABCD→D</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="method-name">Kosmos-VLA (w/ rgb)</td>
+                                        
+                                        <td>92.4</td>
+                                        <td>85.4</td>
+                                        <td>79.0</td>
+                                        <td>74.9</td>
+                                        <td>68.7</td>
+                                        <td>4.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="method-name">Kosmos-VLA (w/ rgb-d)</td>
+                                        
+                                        <td>92.4</td>
+                                        <td>85.3</td>
+                                        <td>80.0</td>
+                                        <td>76.5</td>
+                                        <td class="best-value">70.5</td>
+                                        <td>4.05</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="method-name">Ours (w/ rgb)</td>
+                                        
+                                        <td>93.8</td>
+                                        <td>86.6</td>
+                                        <td>81.0</td>
+                                        <td>75.5</td>
+                                        <td>69.5</td>
+                                        <td>4.07</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="method-name">Ours (w/ rgb-d)</td>
+                                        
+                                        <td class="best-value">94.0</td>
+                                        <td class="best-value">87.0</td>
+                                        <td class="best-value">81.3</td>
+                                        <td class="best-value">76.8</td>
+                                        <td>70.3</td>
+                                        <td class="best-value">4.09</td>
+                                    </tr>
+                                    <!-- Task ABC->D -->
+                                    <tr class="task-header">
+                                        <td colspan="8" style="text-align: center; font-weight: 600; padding: 12px;">Task: ABC→D</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="method-name">Kosmos-VLA (w/ rgb)</td>
+                                        
+                                        <td>90.1</td>
+                                        <td>79.1</td>
+                                        <td>69.2</td>
+                                        <td>59.6</td>
+                                        <td>50.9</td>
+                                        <td>3.49</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="method-name">Kosmos-VLA (w/ rgb-d)</td>
+                                        
+                                        <td>93.6</td>
+                                        <td>86.0</td>
+                                        <td>78.6</td>
+                                        <td class="best-value">73.3</td>
+                                        <td class="best-value">66.3</td>
+                                        <td class="best-value">3.98</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="method-name">Ours (w/ rgb)</td>
+                                        
+                                        <td>94.8</td>
+                                        <td class="best-value">87.8</td>
+                                        <td>78.3</td>
+                                        <td>70.3</td>
+                                        <td>62.0</td>
+                                        <td>3.93</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="method-name">Ours (w/ rgb-d)</td>
+                                        
+                                        <td class="best-value">95.6</td>
+                                        <td>87.7</td>
+                                        <td class="best-value">79.2</td>
+                                        <td>70.8</td>
+                                        <td>63.0</td>
+                                        <td>3.96</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1945,6 +2534,209 @@
                 });
             }
         })();
+
+        // VLA Visualization Interactive Controls
+        let currentVLAPage = 0;
+        const scenesPerPage = 2;
+        
+        const vlaScenes = [
+            {
+                name: 'Lift Red Block Slider',
+                freefusion: { src: 'vla/freefusion/0-2-lift_red_block_slider-succ.gif', label: 'Ours' },
+                kosmos: { src: 'vla/kosmos/0-2-lift_red_block_slider-fail%20(1).gif', label: 'Kosmos-VLA' }
+            },
+            {
+                name: 'Stack Block',
+                freefusion: { src: 'vla/freefusion/16-2-stack_block-succ.gif', label: 'Ours' },
+                kosmos: { src: 'vla/kosmos/16-2-stack_block-fail.gif', label: 'Kosmos-VLA' }
+            },
+            {
+                name: 'Place In Slider',
+                freefusion: { src: 'vla/freefusion/3-2-place_in_slider-succ.gif', label: 'Ours' },
+                kosmos: { src: 'vla/kosmos/3-2-place_in_slider-fail.gif', label: 'Kosmos-VLA' }
+            },
+            {
+                name: 'Push Blue Block Left',
+                freefusion: { src: 'vla/freefusion/5-0-push_blue_block_left-succ.gif', label: 'Ours' },
+                kosmos: { src: 'vla/kosmos/5-0-push_blue_block_left-fail.gif', label: 'Kosmos-VLA' }
+            }
+        ];
+
+        // Calculate total pages
+        const totalVLAPages = Math.ceil(vlaScenes.length / scenesPerPage);
+
+        // Initialize VLA visualization
+        function initializeVLA() {
+            loadVLAPage(currentVLAPage);
+            initializeVLASliders();
+        }
+
+        // Change VLA page
+        function changeVLAScene(direction) {
+            const newPage = currentVLAPage + direction;
+            
+            if (newPage < 0 || newPage >= totalVLAPages) {
+                return; // Don't go beyond bounds
+            }
+            
+            currentVLAPage = newPage;
+            loadVLAPage(currentVLAPage);
+        }
+
+        // Load VLA page (showing 2 scenes)
+        function loadVLAPage(pageIndex) {
+            if (pageIndex < 0 || pageIndex >= totalVLAPages) return;
+            
+            // Update counter
+            const counter = document.getElementById('vlaCounter');
+            if (counter) {
+                counter.textContent = `${pageIndex + 1} / ${totalVLAPages}`;
+            }
+            
+            // Update navigation buttons
+            const prevBtn = document.getElementById('vlaPrevBtn');
+            const nextBtn = document.getElementById('vlaNextBtn');
+            if (prevBtn) prevBtn.disabled = pageIndex === 0;
+            if (nextBtn) nextBtn.disabled = pageIndex === totalVLAPages - 1;
+            
+            // Load scene 1
+            const scene1Index = pageIndex * scenesPerPage;
+            if (scene1Index < vlaScenes.length) {
+                const scene1 = vlaScenes[scene1Index];
+                updateScene(1, scene1);
+            } else {
+                // Hide scene 1 if not available
+                const scene1Container = document.querySelector('.vla-scenes-container > div:first-child');
+                if (scene1Container) scene1Container.style.display = 'none';
+            }
+            
+            // Load scene 2
+            const scene2Index = pageIndex * scenesPerPage + 1;
+            if (scene2Index < vlaScenes.length) {
+                const scene2 = vlaScenes[scene2Index];
+                updateScene(2, scene2);
+            } else {
+                // Hide scene 2 if not available
+                const scene2Container = document.querySelector('.vla-scenes-container > div:last-child');
+                if (scene2Container) scene2Container.style.display = 'none';
+            }
+        }
+
+        // Update a single scene
+        function updateScene(sceneNum, scene) {
+            const viewerTitle = document.getElementById(`vlaViewerTitle${sceneNum}`);
+            const leftGif = document.getElementById(`vlaLeftGif${sceneNum}`);
+            const rightGif = document.getElementById(`vlaRightGif${sceneNum}`);
+            const leftLabel = document.getElementById(`vlaLeftLabel${sceneNum}`);
+            const rightLabel = document.getElementById(`vlaRightLabel${sceneNum}`);
+            
+            if (viewerTitle) {
+                viewerTitle.textContent = scene.name;
+            }
+            if (leftGif) {
+                leftGif.src = scene.freefusion.src;
+                leftGif.alt = scene.freefusion.label;
+            }
+            if (rightGif) {
+                rightGif.src = scene.kosmos.src;
+                rightGif.alt = scene.kosmos.label;
+            }
+            if (leftLabel) {
+                leftLabel.textContent = scene.freefusion.label;
+            }
+            if (rightLabel) {
+                rightLabel.textContent = scene.kosmos.label;
+            }
+            
+            // Show the scene container
+            const sceneContainer = document.querySelector(`.vla-scenes-container > div:nth-child(${sceneNum})`);
+            if (sceneContainer) sceneContainer.style.display = 'flex';
+            
+            // Reset slider position to center
+            const slider = document.getElementById(`vlaSlider${sceneNum}`);
+            if (slider && leftGif && rightGif) {
+                slider.style.left = '50%';
+                leftGif.style.clipPath = 'inset(0 50% 0 0)';
+                rightGif.style.clipPath = 'inset(0 0 0 50%)';
+            }
+        }
+
+        // Initialize VLA sliders for all scenes
+        function initializeVLASliders() {
+            [1, 2].forEach(sceneNum => {
+                initializeVLASlider(sceneNum);
+            });
+        }
+
+        // Initialize slider for a specific scene
+        function initializeVLASlider(sceneNum) {
+            const slider = document.getElementById(`vlaSlider${sceneNum}`);
+            const leftGif = document.getElementById(`vlaLeftGif${sceneNum}`);
+            const rightGif = document.getElementById(`vlaRightGif${sceneNum}`);
+            const container = document.getElementById(`vlaContainer${sceneNum}`);
+            
+            if (!slider || !container) return;
+            
+            let isDragging = false;
+            
+            function updateSliderPosition(clientX) {
+                const rect = container.getBoundingClientRect();
+                let position = ((clientX - rect.left) / rect.width) * 100;
+                position = Math.max(0, Math.min(100, position));
+                
+                slider.style.left = position + '%';
+                if (leftGif) leftGif.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
+                if (rightGif) rightGif.style.clipPath = `inset(0 0 0 ${position}%)`;
+            }
+            
+            slider.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                e.preventDefault();
+            });
+            
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                updateSliderPosition(e.clientX);
+            });
+            
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+            
+            // Touch events for mobile
+            slider.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                e.preventDefault();
+            });
+            
+            document.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                updateSliderPosition(e.touches[0].clientX);
+            });
+            
+            document.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+        }
+
+
+        // Initialize VLA on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeVLA();
+        });
+
+        // Keyboard navigation for VLA
+        document.addEventListener('keydown', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                return;
+            }
+            
+            if (e.key === 'ArrowLeft') {
+                changeVLAScene(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeVLAScene(1);
+            }
+        });
 
     </script>
 </body>
