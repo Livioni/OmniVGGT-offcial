@@ -15,7 +15,7 @@
 Haosong Peng `<sup>`*`</sup>`, Hao Li `<sup>`* `</sup>`, Yalun Dai, Yushi Lan, Yihang Luo, Tianyu Qi,
 Zhengshen Zhang, Yufeng Zhan `<sup>`†`</sup>`, Junfei Zhang `<sup>`†`</sup>`, Wenchao Xu `<sup>`†`</sup>`, Ziwei Liu
 
-`<sup>`*`</sup>`Equal Contribution, `<sup>`†`</sup>`Corresponding Author
+`<sup>`*`</sup>` Equal Contribution, `<sup>`†`</sup>` Corresponding Author
 
 </div>
 
@@ -91,20 +91,6 @@ inputs = {
 # Run inference
 with torch.no_grad():
     predictions = model(**inputs)
-
-# Convert pose encoding to camera matrices
-extrinsic, intrinsic = pose_encoding_to_extri_intri(
-    predictions["pose_enc"],
-    images.shape[-2:]
-)
-predictions["extrinsic"] = extrinsic
-predictions["intrinsic"] = intrinsic
-
-# Access the results
-depth_maps = predictions["depth"]           # (B, S, H, W, 1)
-depth_conf = predictions["depth_conf"]      # (B, S, H, W)
-pred_extrinsics = predictions["extrinsic"]  # (B, S, 3, 4)
-pred_intrinsics = predictions["intrinsic"]  # (B, S, 3, 3)
 ```
 
 ### Advanced Options
@@ -122,18 +108,85 @@ python inference.py \
 
 ## 📊 Input Description
 
-- The *image_folder* contains all the images to be processed for reconstruction. The *camera_folder* and *depth_folder* are optional and may include poses and depth maps for any subset of the images.
-  For example, all the following combinations are ok.
+- The *image_folder* contains all the images to be processed for reconstruction. The *camera_folder* and *depth_folder* are optional and may include any combination. For example, all the following combinations are ok.
 
-<table>
-<tr>
-<td>
+<details>
+<summary>📁 Click to see example folder structure combinations</summary>
+
+```plaintext
+example/infinigen
+├── cameras
+│   ├── 26_0_0001_0.txt
+│   ├── 33_0_0001_0.txt
+│   ├── 81_0_0001_0.txt
+│   └── 91_0_0001_0.txt
+├── depths
+│   ├── 26_0_0001_0.npy
+│   ├── 33_0_0001_0.npy
+│   ├── 81_0_0001_0.npy
+│   └── 91_0_0001_0.npy
+└── images
+    ├── 26_0_0001_0.png
+    ├── 33_0_0001_0.png
+    ├── 81_0_0001_0.png
+    └── 91_0_0001_0.png
+```
+
+```plaintext
+example/infinigen
+├── cameras
+│   ├── 26_0_0001_0.txt
+│   └── 91_0_0001_0.txt
+├── depths
+│   ├── 33_0_0001_0.npy
+│   └── 81_0_0001_0.npy
+└── images
+    ├── 26_0_0001_0.png
+    ├── 33_0_0001_0.png
+    ├── 81_0_0001_0.png
+    └── 91_0_0001_0.png
+```
+
+```plaintext
+example/infinigen
+├── cameras
+│   ├── 26_0_0001_0.txt
+│   └── 33_0_0001_0.txt
+├── depths
+│   └── 91_0_0001_0.npy
+└── images
+    ├── 26_0_0001_0.png
+    ├── 33_0_0001_0.png
+    ├── 81_0_0001_0.png
+    └── 91_0_0001_0.png
+```
+
+</details>
 
 - If one or more images have auxiliary camera information, please ensure that the first image always includes camera information.
 - Camera poses and intrinsics are provided in **.txt** files. Please refer to [frame-000002.txt](example/office/cameras/frame-000002.txt) for specific examples. Depth maps can be loaded from either **.png** or **.npy** files.
 - Camera poses are expected to follow the OpenCV `camera-from-world` convention, Depth maps should be aligned with their corresponding camera poses.
 
-## 
+## 📸 Example
+
+### Comparison: Without vs. With Camera Parameters
+
+<div align="center">
+  <img src="assets/left.png" alt="Without Camera" width="400"/>
+  <img src="assets/right.png" alt="With Camera" width="400"/>
+</div>
+
+**Left**: Results without auxiliary camera parameters
+
+```bash
+python inference.py --image_folder example/office/images
+```
+
+**Right**: Results with auxiliary camera parameters
+
+```bash
+python inference.py --image_folder example/office/images --camera_folder example/office/cameras
+```
 
 ## 📝 To-Do List
 
