@@ -190,7 +190,7 @@ python inference.py --image_folder example/office/images --camera_folder example
 
 ## 📝 To-Do List
 
-- [ ] Release project paper.
+- [X] Release project paper.
 - [ ] Release pretrained models.
 - [ ] Release training code.
 
@@ -209,7 +209,7 @@ If you use this code in your research, please cite:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 

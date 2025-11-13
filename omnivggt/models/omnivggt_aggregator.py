@@ -2,13 +2,9 @@ import logging
 import torch
 import torch.nn as nn
 from typing import Tuple, List
-import random
-import numpy as np
 
 from omnivggt.layers import PatchEmbed
 from omnivggt.layers.block import Block
-from omnivggt.layers.rope import RotaryPositionEmbedding2D, PositionGetter
-from omnivggt.layers.vision_transformer import vit_small, vit_base, vit_large, vit_giant2
 from omnivggt.utils.pose_enc import extri_intri_to_pose_encoding
 from torch.utils.checkpoint import checkpoint
 from omnivggt.utils.geometry import closed_form_inverse_se3
@@ -206,8 +202,8 @@ class ZeroAggregator(Aggregator):
             depth_full  = self.depth_placeholder.expand(K, P, C).clone()
 
             rows = (torch.arange(B, device=device).unsqueeze(1) * S + idx_tensor.unsqueeze(0)).reshape(-1)
-            depth_full[rows]  = gt_depth_token.to(dtype = patch_tokens.dtype)                # [B*gt_len, P, C] → 指定行
-            gt_depth_token  = depth_full                      # [B*S, P, C]          
+            depth_full[rows]  = gt_depth_token.to(dtype = patch_tokens.dtype)     
+            gt_depth_token  = depth_full                       
         else:
             gt_depth_token = self.depth_placeholder.expand(K, P, C)
 

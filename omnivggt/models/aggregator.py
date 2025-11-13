@@ -15,9 +15,7 @@ from omnivggt.layers import PatchEmbed
 from omnivggt.layers.block import Block
 from omnivggt.layers.rope import RotaryPositionEmbedding2D, PositionGetter
 from omnivggt.layers.vision_transformer import vit_small, vit_base, vit_large, vit_giant2
-from omnivggt.utils.pose_enc import extri_intri_to_pose_encoding
 from torch.utils.checkpoint import checkpoint
-from omnivggt.utils.geometry import closed_form_inverse_se3
 
 logger = logging.getLogger(__name__)
 
