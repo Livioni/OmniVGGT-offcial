@@ -202,7 +202,7 @@ If you use this code in your research, please cite:
 @article{li2025iggt,
   title={{IGGT}: {INSTANCE-GROUNDED} {GEOMETRY} {TRANSFORMER} for {SEMANTIC} {3D} {RECONSTRUCTION}},
   author={Li, Hao and Zou, Zhengyu and Liu, Fangfu and Zhang, Xuanyang and Hong, Fangzhou and Cao, Yukang and Lan, Yushi and Zhang, Manyuan and Yu, Gang and Zhang, Dingwen and Liu, Ziwei},
-  journal={arXiv preprint arXiv:24XX.XXXXX},
+  journal={arXiv preprint arXiv:2510.22706},
   year={2025}
 }
 ```
