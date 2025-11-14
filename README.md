@@ -4,10 +4,10 @@
 
 <h1>OmniVGGT: Omni-Modality Driven Visual Geometry Grounded Transformer</h1>
 
-<a href="https://arxiv.org/abs/2511.10560" target="blank" rel="noopener noreferrer">
+<a href="[https://arxiv.org/abs/2511.10560](https://arxiv.org/abs/2511.10560)" target="blank" rel="noopener noreferrer">
   <img src="https://img.shields.io/badge/Paper-OmniVGGT-red" alt="Paper PDF">
 </a>
-<a href="https://arxiv.org/abs/2511.10560"><img src="https://img.shields.io/badge/arXiv-2511.10560-b31b1b" alt="arXiv"></a>
+<a href="[https://arxiv.org/abs/2511.10560](https://arxiv.org/abs/2511.10560)"><img src="https://img.shields.io/badge/arXiv-2511.10560-b31b1b" alt="arXiv"></a>
 <a href="https://livioni.github.io/OmniVGGT-official"><img src="https://img.shields.io/badge/Project_Page-green" alt="Project Page"></a>
 
 ---
